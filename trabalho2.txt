@@ -1,0 +1,822 @@
+bloco main 0
+    0 verfFita 1
+    1 procSinal 2
+    2 + -- * e 2
+    2 procNum 1
+fim ;main
+
+
+bloco procSinal 1
+    1 + -- * i retorne
+    1 * -- * d 1
+fim ;procSinal
+
+
+bloco procIgual 1
+    1 = -- * i retorne
+    1 * -- * d 1
+fim ;procIgual
+
+
+bloco procNum 1
+    1 1 -- a i 10
+    1 2 -- b i 20
+    1 3 -- c i 30
+    1 4 -- d i 40
+    1 5 -- e i 50
+    1 6 -- f i 60
+    1 7 -- g i 70
+    1 8 -- h i 80
+    1 9 -- i i 90
+    1 0 -- j i 00
+    1 _ -- * i 100
+    1 + -- * i 100
+    1 * -- * e 1
+
+    10 achouUm retorne
+    20 achouDois retorne
+    30 achouTres retorne
+    40 achouQuatro retorne
+    50 achouCinco retorne
+    60 achouSeis retorne
+    70 achouSete retorne
+    80 achouOito retorne
+    90 achouNove retorne
+    00 achouZero retorne
+    100 achouVazio retorne
+fim ;procNum
+
+
+bloco achouUm 2
+
+    2 procIgual 3
+    3 = -- * d 4
+    
+    4 $ -- * i 40   ;se simbolos de inicio no começo do resultado == primeiro número
+    4 & -- * i 40
+    4 * -- * i 5    ;se outro simbolos no começo == segundo número
+    
+    ;casos do primeiro número ser 1
+    40 moveResultado 41  ;move resultado para esquerda e procura o segundo número
+    41 _ -- 1 e 42
+    42 procNum retorne
+
+    ;casos do segundo número ser 1
+    5 _ -- $ d 51
+    5 0 -- $ d 51        ;$ simbolo para vai zero
+    5 1 -- $ d 52        ;& simbolo para vai um
+    5 2 -- $ d 53
+    5 3 -- $ d 54        ;lê primeiro número, subtitui pelo simbolo de inicio,
+    5 4 -- $ d 55        ;e manda para estado da soma
+    5 5 -- $ d 56        ;caso soma seja >= 10 coloca &
+    5 6 -- $ d 57
+    5 7 -- $ d 58
+    5 8 -- $ d 59
+    5 9 -- & d 50           
+
+    50 $ -- 0 e 7       ;verica simbolo anterior
+    51 $ -- 1 e 7       ;se simbolo $, coloca resultado esperado
+    52 $ -- 2 e 7
+    53 $ -- 3 e 7
+    54 $ -- 4 e 7
+    55 $ -- 5 e 7
+    56 $ -- 6 e 7
+    57 $ -- 7 e 7       
+    58 $ -- 8 e 7
+    59 $ -- 9 e 7
+
+    50 & -- 1 e 7       ;se simbolo & soma +1 ao resultado
+    51 & -- 2 e 7   
+    52 & -- 3 e 7
+    53 & -- 4 e 7   
+    54 & -- 5 e 7   
+    55 & -- 6 e 7   
+    56 & -- 7 e 7
+    57 & -- 8 e 7
+    58 & -- 9 e 7
+    59 & -- 0 e 6       ;caso nova soma ultrapasse >=10, chama estado que altera simbolo $ 
+
+    6 $ -- & e 7    
+
+    7 moveIni retorne
+fim ;achouUm
+
+
+bloco achouDois 2
+
+    2 procIgual 3
+    3 = -- * d 4
+    
+    4 $ -- * i 40   ;se simbolos de inicio no começo do resultado == primeiro número
+    4 & -- * i 40
+    4 * -- * i 5    ;se outro simbolos no começo == segundo número
+    
+    ;casos do primeiro número ser 2
+    40 moveResultado 41  ;move resultado para esquerda e procura o segundo número
+    41 _ -- 2 e 42       ;escreve primeiro número
+    42 procNum retorne
+
+    ;casos do segundo número ser 2
+    5 _ -- $ d 52
+    5 0 -- $ d 52        ;$ simbolo para vai zero
+    5 1 -- $ d 53        ;& simbolo para vai um
+    5 2 -- $ d 54
+    5 3 -- $ d 55        ;lê primeiro número, subtitui pelo simbolo de inicio,
+    5 4 -- $ d 56        ;e manda para estado da soma
+    5 5 -- $ d 57        ;caso soma seja >= 10 coloca &
+    5 6 -- $ d 58
+    5 7 -- $ d 59
+    5 8 -- & d 50
+    5 9 -- & d 51           
+
+    50 $ -- 0 e 7       ;verica simbolo anterior
+    51 $ -- 1 e 7       ;se simbolo $, coloca resultado esperado
+    52 $ -- 2 e 7
+    53 $ -- 3 e 7
+    54 $ -- 4 e 7
+    55 $ -- 5 e 7
+    56 $ -- 6 e 7
+    57 $ -- 7 e 7       
+    58 $ -- 8 e 7
+    59 $ -- 9 e 7
+
+    50 & -- 1 e 7       ;se simbolo & soma +1 ao resultado
+    51 & -- 2 e 7   
+    52 & -- 3 e 7
+    53 & -- 4 e 7   
+    54 & -- 5 e 7   
+    55 & -- 6 e 7   
+    56 & -- 7 e 7
+    57 & -- 8 e 7
+    58 & -- 9 e 7
+    59 & -- 0 e 6       ;caso nova soma ultrapasse >=10, chama estado que altera simbolo $ 
+
+    6 $ -- & e 7    
+
+    7 moveIni retorne
+fim ;achouDois
+
+
+bloco achouTres 2
+
+    2 procIgual 3
+    3 = -- * d 4
+    
+    4 $ -- * i 40   ;se simbolos de inicio no começo do resultado == primeiro número
+    4 & -- * i 40
+    4 * -- * i 5    ;se outro simbolos no começo == segundo número
+    
+    ;casos do primeiro número ser 3
+    40 moveResultado 41  ;move resultado para esquerda e procura o segundo número
+    41 _ -- 3 e 42       ;escreve primeiro número
+    42 procNum retorne
+
+    ;casos do segundo número ser 3
+    5 _ -- $ d 53
+    5 0 -- $ d 53        ;$ simbolo para vai zero
+    5 1 -- $ d 54        ;& simbolo para vai um
+    5 2 -- $ d 55
+    5 3 -- $ d 56        ;lê primeiro número, subtitui pelo simbolo de inicio,
+    5 4 -- $ d 57        ;e manda para estado da soma
+    5 5 -- $ d 58        ;caso soma seja >= 10 coloca &
+    5 6 -- $ d 59
+    5 7 -- & d 50
+    5 8 -- & d 51
+    5 9 -- & d 52           
+
+    50 $ -- 0 e 7       ;verica simbolo anterior
+    51 $ -- 1 e 7       ;se simbolo $, coloca resultado esperado
+    52 $ -- 2 e 7
+    53 $ -- 3 e 7
+    54 $ -- 4 e 7
+    55 $ -- 5 e 7
+    56 $ -- 6 e 7
+    57 $ -- 7 e 7       
+    58 $ -- 8 e 7
+    59 $ -- 9 e 7
+
+    50 & -- 1 e 7       ;se simbolo & soma +1 ao resultado
+    51 & -- 2 e 7   
+    52 & -- 3 e 7
+    53 & -- 4 e 7   
+    54 & -- 5 e 7   
+    55 & -- 6 e 7   
+    56 & -- 7 e 7
+    57 & -- 8 e 7
+    58 & -- 9 e 7
+    59 & -- 0 e 6       ;caso nova soma ultrapasse >=10, chama estado que altera simbolo $ 
+
+    6 $ -- & e 7    
+
+    7 moveIni retorne
+fim ;achouTres
+
+
+bloco achouQuatro 2
+
+    2 procIgual 3
+    3 = -- * d 4
+    
+    4 $ -- * i 40   ;se simbolos de inicio no começo do resultado == primeiro número
+    4 & -- * i 40
+    4 * -- * i 5    ;se outro simbolos no começo == segundo número
+    
+    ;casos do primeiro número ser 4
+    40 moveResultado 41  ;move resultado para esquerda e procura o segundo número
+    41 _ -- 4 e 42       ;escreve primeiro número
+    42 procNum retorne
+
+    ;casos do segundo número ser 4
+    5 _ -- $ d 54
+    5 0 -- $ d 54        ;$ simbolo para vai zero
+    5 1 -- $ d 55        ;& simbolo para vai um
+    5 2 -- $ d 56
+    5 3 -- $ d 57        ;lê primeiro número, subtitui pelo simbolo de inicio,
+    5 4 -- $ d 58        ;e manda para estado da soma
+    5 5 -- $ d 59        ;caso soma seja >= 10 coloca &
+    5 6 -- & d 50
+    5 7 -- & d 51
+    5 8 -- & d 52
+    5 9 -- & d 53           
+
+    50 $ -- 0 e 7       ;verica simbolo anterior
+    51 $ -- 1 e 7       ;se simbolo $, coloca resultado esperado
+    52 $ -- 2 e 7
+    53 $ -- 3 e 7
+    54 $ -- 4 e 7
+    55 $ -- 5 e 7
+    56 $ -- 6 e 7
+    57 $ -- 7 e 7       
+    58 $ -- 8 e 7
+    59 $ -- 9 e 7
+
+    50 & -- 1 e 7       ;se simbolo & soma +1 ao resultado
+    51 & -- 2 e 7   
+    52 & -- 3 e 7
+    53 & -- 4 e 7   
+    54 & -- 5 e 7   
+    55 & -- 6 e 7   
+    56 & -- 7 e 7
+    57 & -- 8 e 7
+    58 & -- 9 e 7
+    59 & -- 0 e 6       ;caso nova soma ultrapasse >=10, chama estado que altera simbolo $ 
+
+    6 $ -- & e 7    
+
+    7 moveIni retorne
+fim ;achouQuatro
+
+
+bloco achouCinco 2
+
+    2 procIgual 3
+    3 = -- * d 4
+    
+    4 $ -- * i 40   ;se simbolos de inicio no começo do resultado == primeiro número
+    4 & -- * i 40
+    4 * -- * i 5    ;se outro simbolos no começo == segundo número
+    
+    ;casos do primeiro número ser 5
+    40 moveResultado 41  ;move resultado para esquerda e procura o segundo número
+    41 _ -- 5 e 42       ;escreve primeiro número
+    42 procNum retorne
+
+    ;casos do segundo número ser 5
+    5 _ -- $ d 55
+    5 0 -- $ d 55        ;$ simbolo para vai zero
+    5 1 -- $ d 56        ;& simbolo para vai um
+    5 2 -- $ d 57
+    5 3 -- $ d 58        ;lê primeiro número, subtitui pelo simbolo de inicio,
+    5 4 -- $ d 59        ;e manda para estado da soma
+    5 5 -- & d 50        ;caso soma seja >= 10 coloca &
+    5 6 -- & d 51
+    5 7 -- & d 52
+    5 8 -- & d 53
+    5 9 -- & d 54           
+
+    50 $ -- 0 e 7       ;verica simbolo anterior
+    51 $ -- 1 e 7       ;se simbolo $, coloca resultado esperado
+    52 $ -- 2 e 7
+    53 $ -- 3 e 7
+    54 $ -- 4 e 7
+    55 $ -- 5 e 7
+    56 $ -- 6 e 7
+    57 $ -- 7 e 7       
+    58 $ -- 8 e 7
+    59 $ -- 9 e 7
+
+    50 & -- 1 e 7       ;se simbolo & soma +1 ao resultado
+    51 & -- 2 e 7   
+    52 & -- 3 e 7
+    53 & -- 4 e 7   
+    54 & -- 5 e 7   
+    55 & -- 6 e 7   
+    56 & -- 7 e 7
+    57 & -- 8 e 7
+    58 & -- 9 e 7
+    59 & -- 0 e 6       ;caso nova soma ultrapasse >=10, chama estado que altera simbolo $ 
+
+    6 $ -- & e 7    
+
+    7 moveIni retorne
+fim ;achouCinco
+
+
+bloco achouSeis 2
+
+    2 procIgual 3
+    3 = -- * d 4
+    
+    4 $ -- * i 40   ;se simbolos de inicio no começo do resultado == primeiro número
+    4 & -- * i 40
+    4 * -- * i 5    ;se outro simbolos no começo == segundo número
+    
+    ;casos do primeiro número ser 6
+    40 moveResultado 41  ;move resultado para esquerda e procura o segundo número
+    41 _ -- 6 e 42       ;escreve primeiro número
+    42 procNum retorne
+
+    ;casos do segundo número ser 6
+    5 _ -- $ d 56
+    5 0 -- $ d 56        ;$ simbolo para vai zero
+    5 1 -- $ d 57        ;& simbolo para vai um
+    5 2 -- $ d 58
+    5 3 -- $ d 59        ;lê primeiro número, subtitui pelo simbolo de inicio,
+    5 4 -- & d 50        ;e manda para estado da soma
+    5 5 -- & d 51        ;caso soma seja >= 10 coloca &
+    5 6 -- & d 52
+    5 7 -- & d 53
+    5 8 -- & d 54
+    5 9 -- & d 55           
+
+    50 $ -- 0 e 7       ;verica simbolo anterior
+    51 $ -- 1 e 7       ;se simbolo $, coloca resultado esperado
+    52 $ -- 2 e 7
+    53 $ -- 3 e 7
+    54 $ -- 4 e 7
+    55 $ -- 5 e 7
+    56 $ -- 6 e 7
+    57 $ -- 7 e 7       
+    58 $ -- 8 e 7
+    59 $ -- 9 e 7
+
+    50 & -- 1 e 7       ;se simbolo & soma +1 ao resultado
+    51 & -- 2 e 7   
+    52 & -- 3 e 7
+    53 & -- 4 e 7   
+    54 & -- 5 e 7   
+    55 & -- 6 e 7   
+    56 & -- 7 e 7
+    57 & -- 8 e 7
+    58 & -- 9 e 7
+    59 & -- 0 e 6       ;caso nova soma ultrapasse >=10, chama estado que altera simbolo $ 
+
+    6 $ -- & e 7    
+
+    7 moveIni retorne
+fim ;achouSeis
+
+
+bloco achouSete 2
+
+    2 procIgual 3
+    3 = -- * d 4
+    
+    4 $ -- * i 40   ;se simbolos de inicio no começo do resultado == primeiro número
+    4 & -- * i 40
+    4 * -- * i 5    ;se outro simbolos no começo == segundo número
+    
+    ;casos do primeiro número ser 7
+    40 moveResultado 41  ;move resultado para esquerda e procura o segundo número
+    41 _ -- 7 e 42       ;escreve primeiro número
+    42 procNum retorne
+
+    ;casos do segundo número ser 7
+    5 _ -- $ d 57
+    5 0 -- $ d 57        ;$ simbolo para vai zero
+    5 1 -- $ d 58        ;& simbolo para vai um
+    5 2 -- $ d 59
+    5 3 -- & d 50        ;lê primeiro número, subtitui pelo simbolo de inicio,
+    5 4 -- & d 51        ;e manda para estado da soma
+    5 5 -- & d 52        ;caso soma seja >= 10 coloca &
+    5 6 -- & d 53
+    5 7 -- & d 54
+    5 8 -- & d 55
+    5 9 -- & d 56           
+
+    50 $ -- 0 e 7       ;verica simbolo anterior
+    51 $ -- 1 e 7       ;se simbolo $, coloca resultado esperado
+    52 $ -- 2 e 7
+    53 $ -- 3 e 7
+    54 $ -- 4 e 7
+    55 $ -- 5 e 7
+    56 $ -- 6 e 7
+    57 $ -- 7 e 7       
+    58 $ -- 8 e 7
+    59 $ -- 9 e 7
+
+    50 & -- 1 e 7       ;se simbolo & soma +1 ao resultado
+    51 & -- 2 e 7   
+    52 & -- 3 e 7
+    53 & -- 4 e 7   
+    54 & -- 5 e 7   
+    55 & -- 6 e 7   
+    56 & -- 7 e 7
+    57 & -- 8 e 7
+    58 & -- 9 e 7
+    59 & -- 0 e 6       ;caso nova soma ultrapasse >=10, chama estado que altera simbolo $ 
+
+    6 $ -- & e 7    
+
+    7 moveIni retorne
+fim ;achouSete
+
+
+bloco achouOito 2
+
+    2 procIgual 3
+    3 = -- * d 4
+    
+    4 $ -- * i 40   ;se simbolos de inicio no começo do resultado == primeiro número
+    4 & -- * i 40
+    4 * -- * i 5    ;se outro simbolos no começo == segundo número
+    
+    ;casos do primeiro número ser 8
+    40 moveResultado 41  ;move resultado para esquerda e procura o segundo número
+    41 _ -- 8 e 42       ;escreve primeiro número
+    42 procNum retorne
+
+    ;casos do segundo número ser 8
+    5 _ -- $ d 58
+    5 0 -- $ d 58        ;$ simbolo para vai zero
+    5 1 -- $ d 59        ;& simbolo para vai um
+    5 2 -- & d 50
+    5 3 -- & d 51        ;lê primeiro número, subtitui pelo simbolo de inicio,
+    5 4 -- & d 52        ;e manda para estado da soma
+    5 5 -- & d 53        ;caso soma seja >= 10 coloca &
+    5 6 -- & d 54
+    5 7 -- & d 55
+    5 8 -- & d 56
+    5 9 -- & d 57           
+
+    50 $ -- 0 e 7       ;verica simbolo anterior
+    51 $ -- 1 e 7       ;se simbolo $, coloca resultado esperado
+    52 $ -- 2 e 7
+    53 $ -- 3 e 7
+    54 $ -- 4 e 7
+    55 $ -- 5 e 7
+    56 $ -- 6 e 7
+    57 $ -- 7 e 7       
+    58 $ -- 8 e 7
+    59 $ -- 9 e 7
+
+    50 & -- 1 e 7       ;se simbolo & soma +1 ao resultado
+    51 & -- 2 e 7   
+    52 & -- 3 e 7
+    53 & -- 4 e 7   
+    54 & -- 5 e 7   
+    55 & -- 6 e 7   
+    56 & -- 7 e 7
+    57 & -- 8 e 7
+    58 & -- 9 e 7
+    59 & -- 0 e 6       ;caso nova soma ultrapasse >=10, chama estado que altera simbolo $ 
+
+    6 $ -- & e 7    
+
+    7 moveIni retorne
+fim ;achouOito
+
+
+bloco achouNove 2
+
+    2 procIgual 3
+    3 = -- * d 4
+    
+    4 $ -- * i 40   ;se simbolos de inicio no começo do resultado == primeiro número
+    4 & -- * i 40
+    4 * -- * i 5    ;se outro simbolos no começo == segundo número
+    
+    ;casos do primeiro número ser 9
+    40 moveResultado 41  ;move resultado para esquerda e procura o segundo número
+    41 _ -- 9 e 42       ;escreve primeiro número
+    42 procNum retorne
+
+    ;casos do segundo número ser 9
+    5 _ -- $ d 59
+    5 0 -- $ d 59        ;$ simbolo para vai zero
+    5 1 -- & d 50        ;& simbolo para vai um
+    5 2 -- & d 51
+    5 3 -- & d 52        ;lê primeiro número, subtitui pelo simbolo de inicio,
+    5 4 -- & d 53        ;e manda para estado da soma
+    5 5 -- & d 54        ;caso soma seja >= 10 coloca &
+    5 6 -- & d 55
+    5 7 -- & d 56
+    5 8 -- & d 57
+    5 9 -- & d 58           
+
+    50 $ -- 0 e 7       ;verica simbolo anterior
+    51 $ -- 1 e 7       ;se simbolo $, coloca resultado esperado
+    52 $ -- 2 e 7
+    53 $ -- 3 e 7
+    54 $ -- 4 e 7
+    55 $ -- 5 e 7
+    56 $ -- 6 e 7
+    57 $ -- 7 e 7       
+    58 $ -- 8 e 7
+    59 $ -- 9 e 7
+
+    50 & -- 1 e 7       ;se simbolo & soma +1 ao resultado
+    51 & -- 2 e 7   
+    52 & -- 3 e 7
+    53 & -- 4 e 7   
+    54 & -- 5 e 7   
+    55 & -- 6 e 7   
+    56 & -- 7 e 7
+    57 & -- 8 e 7
+    58 & -- 9 e 7
+    59 & -- 0 e 6       ;caso nova soma ultrapasse >=10, chama estado que altera simbolo $ 
+
+    6 $ -- & e 7    
+
+    7 moveIni retorne
+fim ;achouNove
+
+
+bloco achouZero 2
+
+    2 procIgual 3
+    3 = -- * d 4
+    
+    4 $ -- * i 40   ;se simbolos de inicio no começo do resultado == primeiro número
+    4 & -- * i 40
+    4 * -- * i 5    ;se outro simbolos no começo == segundo número
+    
+    ;casos do primeiro número ser 0
+    40 moveResultado 41  ;move resultado para esquerda e procura o segundo número
+    41 _ -- 0 e 42       ;escreve primeiro número
+    42 procNum retorne
+
+    ;casos do segundo número ser 0
+    5 _ -- $ d 50
+    5 0 -- $ d 50        ;$ simbolo para vai zero
+    5 1 -- $ d 51        ;& simbolo para vai um
+    5 2 -- $ d 52
+    5 3 -- $ d 53        ;lê primeiro número, subtitui pelo simbolo de inicio,
+    5 4 -- $ d 54        ;e manda para estado da soma
+    5 5 -- $ d 55        ;caso soma seja >= 10 coloca &
+    5 6 -- $ d 56
+    5 7 -- $ d 57
+    5 8 -- $ d 58
+    5 9 -- $ d 59           
+
+    50 $ -- 0 e 7       ;verica simbolo anterior
+    51 $ -- 1 e 7       ;se simbolo $, coloca resultado esperado
+    52 $ -- 2 e 7
+    53 $ -- 3 e 7
+    54 $ -- 4 e 7
+    55 $ -- 5 e 7
+    56 $ -- 6 e 7
+    57 $ -- 7 e 7       
+    58 $ -- 8 e 7
+    59 $ -- 9 e 7
+
+    50 & -- 1 e 7       ;se simbolo & soma +1 ao resultado
+    51 & -- 2 e 7   
+    52 & -- 3 e 7
+    53 & -- 4 e 7   
+    54 & -- 5 e 7   
+    55 & -- 6 e 7   
+    56 & -- 7 e 7
+    57 & -- 8 e 7
+    58 & -- 9 e 7
+    59 & -- 0 e 6       ;caso nova soma ultrapasse >=10, chama estado que altera simbolo $ 
+
+    6 $ -- & e 7    
+
+    7 moveIni retorne
+fim ;achouZero
+
+
+bloco achouVazio 2
+
+    2 procIgual 3
+    3 = -- * d 4
+    
+    4 $ -- * i 40   ;se simbolos de inicio no começo do resultado == primeiro número
+    4 & -- * i 40
+    4 * -- * i 5    ;se outro simbolos no começo == segundo número
+    
+    ;casos do primeiro número ser _
+    40 moveResultado 41  ;move resultado para esquerda e procura o segundo número
+    41 _ -- _ e 42       ;escreve primeiro número
+    42 procNum retorne
+
+    ;casos do segundo número ser _
+    5 _ -- _ d 80  ;estado fim da soma vazio + vazio
+    5 0 -- $ d 50        ;$ simbolo para vai zero
+    5 1 -- $ d 51        ;& simbolo para vai um
+    5 2 -- $ d 52
+    5 3 -- $ d 53        ;lê primeiro número, subtitui pelo simbolo de inicio,
+    5 4 -- $ d 54        ;e manda para estado da soma
+    5 5 -- $ d 55        ;caso soma seja >= 10 coloca &
+    5 6 -- $ d 56
+    5 7 -- $ d 57
+    5 8 -- $ d 58
+    5 9 -- $ d 59           
+
+    50 $ -- 0 e 7       ;verica simbolo anterior
+    51 $ -- 1 e 7       ;se simbolo $, coloca resultado esperado
+    52 $ -- 2 e 7
+    53 $ -- 3 e 7
+    54 $ -- 4 e 7
+    55 $ -- 5 e 7
+    56 $ -- 6 e 7
+    57 $ -- 7 e 7       
+    58 $ -- 8 e 7
+    59 $ -- 9 e 7
+
+    50 & -- 1 e 7       ;se simbolo & soma +1 ao resultado
+    51 & -- 2 e 7   
+    52 & -- 3 e 7
+    53 & -- 4 e 7   
+    54 & -- 5 e 7   
+    55 & -- 6 e 7   
+    56 & -- 7 e 7
+    57 & -- 8 e 7
+    58 & -- 9 e 7
+    59 & -- 0 e 6       ;caso nova soma ultrapasse >=10, chama estado que altera simbolo $ 
+
+    6 $ -- & e 7    
+
+    7 moveIni retorne
+
+    80 $ -- _ d 81   
+    80 & -- 1 i 81     ;caso vai um transforma simbolo em 1
+    80 _ -- * d 81     ;caso tenha espaço formata resultado
+    80 * -- * e 9999   
+    81 formataResultado 82  ;move resultado pra esquerda 
+    82 = -- * d 80          
+    82 * -- * e 82  
+
+    9999 formataEquacao pare  ;remove as letras  
+
+fim ;achouVazio
+
+
+bloco moveIni 1          ;vai para inicio da fita
+    1 _ -- * d retorne
+    1 * -- * e 1
+fim ;moveIni
+
+bloco moveResultado 0    ; move resultado pra direita
+
+    0 _ -- * e 1      ;anda até o final, depois caso ache _ acha o número a esquerda
+    0 * -- * d 0
+
+    1 1 -- _ d 10    ;faz a troca de números e _ , repete até levar _ para o começo
+    1 2 -- _ d 20
+    1 3 -- _ d 30
+    1 4 -- _ d 40
+    1 5 -- _ d 50
+    1 6 -- _ d 60
+    1 7 -- _ d 70
+    1 8 -- _ d 80
+    1 9 -- _ d 90
+    1 0 -- _ d 100
+    1 $ -- _ d 101
+    1 & -- _ d 102
+
+    10 _ -- 1 e 0
+    20 _ -- 2 e 0
+    30 _ -- 3 e 0
+    40 _ -- 4 e 0
+    50 _ -- 5 e 0
+    60 _ -- 6 e 0
+    70 _ -- 7 e 0
+    80 _ -- 8 e 0
+    90 _ -- 9 e 0
+    100 _ -- 0 e 0
+    101 _ -- $ e retorne    ;depois que troca _ com simbolo de inicio retorna
+    102 _ -- & e retorne
+fim ;moveResultado
+
+
+bloco formataResultado 1       
+    0 _ -- * d 1    ;quando acha _ pega número a direita
+     
+    1 1 -- _ e 10       ;faz a troca de números e _ , repete até levar _ para o final
+    1 2 -- _ e 20
+    1 3 -- _ e 30
+    1 4 -- _ e 40
+    1 5 -- _ e 50
+    1 6 -- _ e 60
+    1 7 -- _ e 70
+    1 8 -- _ e 80
+    1 9 -- _ e 90
+    1 0 -- _ e 100
+    1 _ -- _ i retorne  ;quando acha _ _ para pois está no final
+    
+    10 _ -- 1 d 0
+    20 _ -- 2 d 0
+    30 _ -- 3 d 0
+    40 _ -- 4 d 0
+    50 _ -- 5 d 0
+    60 _ -- 6 d 0
+    70 _ -- 7 d 0
+    80 _ -- 8 d 0
+    90 _ -- 9 d 0
+    100 _ -- 0 d 0
+fim ;formataResultado    
+
+bloco formataEquacao 1  ;volta pela fita mudando todas as letras
+    1 = -- * e 2
+    1 * -- * e 1
+
+    2 a -- 1 e 2
+    2 b -- 2 e 2
+    2 c -- 3 e 2
+    2 d -- 4 e 2
+    2 e -- 5 e 2
+    2 f -- 6 e 2
+    2 g -- 7 e 2
+    2 h -- 8 e 2 
+    2 i -- 9 e 2
+    2 j -- 0 e 2
+    2 + -- * e 2
+    2 _ -- * e 3
+
+    3 procIgual retorne
+fim ;formataEquacao
+
+
+bloco verfFita 1  ;verifica se fita esta no formato num+num=
+                
+    1 1 -- * d 2
+    1 2 -- * d 2
+    1 3 -- * d 2
+    1 4 -- * d 2
+    1 5 -- * d 2
+    1 6 -- * d 2
+    1 7 -- * d 2
+    1 8 -- * d 2
+    1 9 -- * d 2
+    1 0 -- * d 2
+    
+    2 1 -- * d 2
+    2 2 -- * d 2
+    2 3 -- * d 2
+    2 4 -- * d 2
+    2 5 -- * d 2
+    2 6 -- * d 2
+    2 7 -- * d 2
+    2 8 -- * d 2
+    2 9 -- * d 2
+    2 0 -- * d 2
+    2 + -- * d 3
+
+    3 1 -- * d 4
+    3 2 -- * d 4
+    3 3 -- * d 4
+    3 4 -- * d 4
+    3 5 -- * d 4
+    3 6 -- * d 4
+    3 7 -- * d 4
+    3 8 -- * d 4
+    3 9 -- * d 4
+    3 0 -- * d 4
+
+    4 1 -- * d 4
+    4 2 -- * d 4
+    4 3 -- * d 4
+    4 4 -- * d 4
+    4 5 -- * d 4
+    4 6 -- * d 4
+    4 7 -- * d 4
+    4 8 -- * d 4
+    4 9 -- * d 4
+    4 0 -- * d 4
+    4 = -- * d 5
+    
+    5 _ -- $ e 6  ;adiciona marca de resultado
+
+    6 moveIni retorne
+
+    * fitaInvalida pare
+fim ;verfFita
+    
+
+bloco fitaInvalida 10
+    10 * -- F d 11
+    11 * -- I d 12
+    12 * -- T d 13
+    13 * -- A d 14
+    14 * -- _ d 15
+    15 * -- I d 16
+    16 * -- N d 17
+    17 * -- V d 18
+    18 * -- A d 19
+    19 * -- L d 20
+    20 * -- I d 21
+    21 * -- D d 22
+    22 * -- A d retorne
+fim ;fitaInvalida
